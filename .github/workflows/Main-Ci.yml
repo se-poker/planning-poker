@@ -8,12 +8,11 @@ jobs:
     runs-on: ubuntu-18.04
     
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Use Node.js 12.8
+      - name: Use Node.js 14.16
         uses: actions/setup-node@v1
         with:
-          node-version: 12.8
+          node-version: 14.16
       - name: Backend Install Dependencies
         run: npm install
         working-directory: poker-backend
@@ -23,3 +22,9 @@ jobs:
       - name: Backend Unit Tests
         run: npm run test
         working-directory: poker-backend
+      - name: Frontend Install Dependencies
+        run: npm install
+        working-directory: poker-frontend
+      - name: Frontend Build
+        run: npm run build
+        working-directory: poker-frontend
