@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12.8
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.8
+      - name: Backend Install Dependencies
+        run: npm install
+        working-directory: poker-backend
+      - name: Backend Build
+        run: npm run build
+        working-directory: poker-backend
+      - name: Backend Unit Tests
+        run: npm run test
+        working-directory: poker-backend
