@@ -12,9 +12,6 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '5.0.101'
-      - name: Backend Install Dependencies
-        run: dotnet restore
-        working-directory: poker-backend
       - name: Backend Build
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build --configuration Release
         working-directory: poker-backend
