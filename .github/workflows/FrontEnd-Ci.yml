@@ -13,15 +13,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14.16
-      - name: Backend Install Dependencies
-        run: npm install
-        working-directory: poker-backend
-      - name: Backend Build
-        run: npm run build
-        working-directory: poker-backend
-      - name: Backend Unit Tests
-        run: npm run test
-        working-directory: poker-backend
       - name: Frontend Install Dependencies
         run: npm install
         working-directory: poker-frontend
