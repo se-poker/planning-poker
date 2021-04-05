@@ -8,3 +8,6 @@ The project is being developed by:
 * Łukasz Stachowiak
 * Korneliusz Szymański
 * Mateusz Tamborski
+## Links
+* Backend Deploy - https://planning-poker-cs.azurewebsites.net
+* Frontend Deploy - https://planning-poker-se.netlify.app
