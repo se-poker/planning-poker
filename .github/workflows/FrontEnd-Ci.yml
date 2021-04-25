@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-18.04
-    
+
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js 14.16
@@ -15,6 +15,9 @@ jobs:
           node-version: 14.16
       - name: Frontend Install Dependencies
         run: npm install
+        working-directory: poker-frontend
+      - name: Frontend Lint
+        run: npm run lint
         working-directory: poker-frontend
       - name: Frontend Build
         run: npm run build
