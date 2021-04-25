@@ -1,4 +1,4 @@
-# poker-frontend
+# poker-backend
 
 ## Project setup
 ```
