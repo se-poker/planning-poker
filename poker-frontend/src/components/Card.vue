@@ -1,25 +1,20 @@
 <template>
-  <button  class="poker-card" v-on:click="cardSelected">
-      {{cardNumber}}
-  </button >
+  <button class="poker-card" v-on:click="cardSelected">
+    {{ cardNumber }}
+  </button>
 </template>
 
 <script>
 export default {
   name: "Card",
   props: {
-    cardNumber: Number
+    cardNumber: Number,
   },
-  methods: {
-    cardSelected : function (){
-
-    }
-  }
-}
+};
 </script>
 
 <style lang="scss">
-.poker-card{
+.poker-card {
   height: 250px;
   width: 150px;
   background-color: darkgray;
