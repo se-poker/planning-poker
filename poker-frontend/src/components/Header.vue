@@ -1,6 +1,8 @@
 <template>
   <div class="app-header">
-    <router-link class="home" to="/app">Home</router-link>
+    <div class="link-to-home">
+      <router-link class="link-to-home" to="/app">Home</router-link>
+    </div>
   </div>
 </template>
 
@@ -15,10 +17,10 @@ export default {
   background-color: darkslategray;
   width: 100%;
   height: 10%;
-  .home {
+  .link-to-home {
+    text-align: left;
     color: darkgray;
     font-size: xx-large;
-    text-align: left;
     margin: 10px;
   }
 }

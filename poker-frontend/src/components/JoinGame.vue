@@ -16,6 +16,7 @@
 <script>
 export default {
   name: "JoinGame",
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   data() {
     return {
       username: "",
