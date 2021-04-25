@@ -11,6 +11,9 @@
     </div>
     <div class="user-list">
       user-list
+      <User username="Adam"/>
+      <User username="Robert"/>
+      <User username="Jan"/>
     </div>
     <div class="game-stats">
       game-stats
@@ -20,9 +23,10 @@
 
 <script>
 import Card from "@/components/Card";
+import User from "@/components/User";
 export default {
   name: "Game",
-  components: {Card}
+  components: {User, Card}
 }
 </script>
 
