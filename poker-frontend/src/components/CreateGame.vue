@@ -3,11 +3,11 @@
     <h1>Create Game</h1>
     <div class="username">
       <label>Username:</label>
-      <input type="text" v-model="username" name="username"/>
+      <input type="text" v-model="username" name="username" />
     </div>
     <div class="game-name">
       <label>Game Name: </label>
-      <input type="text" v-model="gameName" name="username"/>
+      <input type="text" v-model="gameName" name="username" />
     </div>
     <button class="create-game-butt">Create Game</button>
   </div>
@@ -19,13 +19,11 @@ export default {
   data() {
     return {
       username: "",
-      gameName: ""
-    }
+      gameName: "",
+    };
   },
-  methods: {}
-}
+  methods: {},
+};
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

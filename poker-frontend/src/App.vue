@@ -1,9 +1,8 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <Header />
+  <div class="container mt-3">
+    <router-view />
   </div>
-  <router-view />
 </template>
 
 <style lang="scss">
@@ -28,3 +27,9 @@
   }
 }
 </style>
+<script>
+import Header from "@/components/Header";
+export default {
+  components: { Header },
+};
+</script>
