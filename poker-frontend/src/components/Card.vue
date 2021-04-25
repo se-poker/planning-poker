@@ -21,6 +21,6 @@ export default {
   border-radius: 10px;
   font-size: xx-large;
   margin: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
 }
 </style>

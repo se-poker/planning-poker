@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "prettier": "eslint --fix src/** "
+    "prettier": "eslint --fix src/**.vue src/**.ts "
   },
   "dependencies": {
     "@microsoft/signalr": "^5.0.5",

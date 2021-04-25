@@ -1,13 +1,13 @@
 <template>
   <div class="userElement">
     <div class="userLogo">
-      <img src="@/assets/logo.png" alt="logo">
+      <img src="@/assets/ready.png" alt="logo" />
     </div>
     <div class="userName">
-      <p>{{username}}</p>
+      <p>{{ username }}</p>
     </div>
     <div class="userReady">
-      <img src="@/assets/ready.png" alt="ready">
+      <img src="@/assets/ready.png" alt="ready" />
     </div>
   </div>
 </template>
@@ -16,9 +16,9 @@
 export default {
   name: "User",
   props: {
-    username: String
-  }
-}
+    username: String,
+  },
+};
 </script>
 
 <style lang="scss">
@@ -30,12 +30,12 @@ export default {
   padding: 0;
 }
 
-img{
-  max-width:100%;
-  max-height:100%;
+img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
-.userElement{
+.userElement {
   border: 1px solid black;
   display: flex;
   align-items: center;
@@ -43,25 +43,24 @@ img{
   height: 100px;
 }
 
-.userLogo{
+.userLogo {
   width: 100px;
   height: 80%;
   margin-left: 30px;
 }
 
-.userName{
+.userName {
   margin-left: 40px;
   padding: 5px;
 }
 
-.userReady{
+.userReady {
   width: 100px;
   height: 70%;
   margin-right: 40px;
 }
 
-.userName p{
+.userName p {
   font-size: xx-large;
 }
-
 </style>
