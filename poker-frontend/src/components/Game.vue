@@ -8,18 +8,23 @@
       <Card card-number="8" />
       <Card card-number="13" />
       <Card card-number="20" />
-      <Card card-number="213" />
     </div>
-    <div class="user-list">user-list</div>
+    <div class="user-list">
+      user-list
+      <User username="Adam" />
+      <User username="Robert" />
+      <User username="Jan" />
+    </div>
     <div class="game-stats">game-stats</div>
   </div>
 </template>
 
 <script>
 import Card from "@/components/Card";
+import User from "@/components/User";
 export default {
   name: "Game",
-  components: { Card },
+  components: { User, Card },
 };
 </script>
 
