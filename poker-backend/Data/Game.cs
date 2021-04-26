@@ -5,9 +5,9 @@ namespace poker_backend.Data
 {
     public class Game
     {
-        public string Name;
+        public string Name { get; set; }
 
-        protected Dictionary<string, User> Users;
+        public Dictionary<string, User> Users { get; } = new();
 
         public void ClearVotes()
         {

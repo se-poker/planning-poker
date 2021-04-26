@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using poker_backend.Data;
 
 namespace poker_backend.Managers
 {
     public class GamesManager
     {
-        protected Dictionary<string, string> ConnectionsGames;
-        protected Dictionary<string, Game> Games;
+        private readonly Dictionary<string, string> ConnectionsGames = new();
+        private readonly Dictionary<string, Game> Games = new();
 
         public Game? GetGame(string gamename)
         {
@@ -34,7 +35,6 @@ namespace poker_backend.Managers
             {
                 Name = gamename
             };
-
             Games.Add(gamename, game);
             return game;
         }

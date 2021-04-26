@@ -2,11 +2,11 @@
 {
     public class User
     {
-        public string Name;
+        public string Name { get; set; }
 
-        public bool IsHost;
+        public bool IsHost { get; set; }
 
-        public Card? Card;
+        public Card? Card { get; set; }
 
         public void VoteCard(int card)
         {

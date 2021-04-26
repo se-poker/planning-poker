@@ -2,14 +2,13 @@
 {
     public class Card
     {
-        public int Value;
+        public int Value { get; set; }
 
-        public bool Hidden;
+        public bool Hidden { get; set; }
 
         public void Show()
         {
             Hidden = true;
         }
-        
     }
 }
