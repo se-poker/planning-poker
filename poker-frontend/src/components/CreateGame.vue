@@ -7,7 +7,7 @@
     </div>
     <div class="game-name">
       <label>Game Name: </label>
-      <input type="text" v-model="gameName" name="username" />
+      <input type="text" v-model="gameName" name="gameName" />
     </div>
     <button class="create-game-butt">Create Game</button>
   </div>

@@ -1,26 +1,16 @@
 <template>
-  <div class="poker-card hidden" v-if="hidden"></div>
-  <div class="poker-card" v-if="!hidden">
-    {{ card && card.value }}
-  </div>
+  <button class="poker-card">
+    {{ card }}
+  </button>
 </template>
 
 <script>
 import { defineComponent } from "vue";
-import { Card } from "@/js/models/card";
 
 export default defineComponent({
   name: "Card",
   props: {
-    card: Card,
-  },
-  computed: {
-    hidden() {
-      if (!this.card) {
-        return true;
-      }
-      return this.card && !this.card.hidden;
-    },
+    card: null,
   },
 });
 </script>
@@ -36,9 +26,5 @@ export default defineComponent({
   font-size: xx-large;
   margin: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
-
-  &.hidden {
-    background-color: dodgerblue !important;
-  }
 }
 </style>

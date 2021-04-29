@@ -1,10 +1,10 @@
 <template>
   <div class="userElement">
     <div class="userLogo">
-      <img src="@/assets/ready.png" alt="logo" />
+      <Card :card="user.card" />
     </div>
     <div class="userName">
-      <p>{{ username }}</p>
+      <p>{{ user.name }}</p>
     </div>
     <div class="userReady">
       <img src="@/assets/ready.png" alt="ready" />
@@ -13,12 +13,17 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from "vue";
+import User from "@/js/models/user";
+import Card from "@/components/Card";
+
+export default defineComponent({
   name: "User",
+  components: { Card },
   props: {
-    username: String,
+    user: User,
   },
-};
+});
 </script>
 
 <style lang="scss">

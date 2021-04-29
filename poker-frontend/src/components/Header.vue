@@ -1,15 +1,17 @@
 <template>
   <div class="app-header">
     <div class="link-to-home">
-      <router-link class="link-to-home" to="/app">Home</router-link>
+      <router-link class="link-to-home" to="/">Home</router-link>
     </div>
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
   name: "Header",
-};
+});
 </script>
 
 <style lang="scss">

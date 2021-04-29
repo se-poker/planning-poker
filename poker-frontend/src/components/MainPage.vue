@@ -3,14 +3,14 @@
   <UsernamePrompt />
 </template>
 
-<script>
-import UsernamePrompt from "./UsernamePrompt";
-export default {
+<script lang="ts">
+import { defineComponent } from "vue";
+import UsernamePrompt from "@/components/UsernamePrompt.vue";
+
+export default defineComponent({
   name: "MainPage",
-  components: {UsernamePrompt}
-}
+  components: { UsernamePrompt },
+});
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

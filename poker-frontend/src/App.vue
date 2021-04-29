@@ -1,4 +1,5 @@
 <template>
+  <Network />
   <Header />
   <div class="container mt-3">
     <router-view />
@@ -27,9 +28,12 @@
   }
 }
 </style>
-<script>
-import Header from "@/components/Header";
-export default {
-  components: { Header },
-};
+<script lang="ts">
+import { defineComponent } from "vue";
+import Header from "@/components/Header.vue";
+import Network from "@/components/Network.vue";
+
+export default defineComponent({
+  components: { Network, Header },
+});
 </script>
