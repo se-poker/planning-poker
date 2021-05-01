@@ -13,7 +13,7 @@
             Card = new Card
             {
                 Value = card,
-                Hidden = false
+                Hidden = true
             };
         }
 

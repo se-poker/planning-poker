@@ -7,10 +7,15 @@ namespace poker_backend.Data
     {
         public string Name { get; set; }
 
+        public List<int> Cards { get; set; } = new();
+
+        public bool Voting { get; set; }
+
         public Dictionary<string, User> Users { get; } = new();
 
         public void ClearVotes()
         {
+            Voting = true;
             foreach (var user in Users)
             {
                 Users[user.Key].Card = null;
@@ -46,6 +51,7 @@ namespace poker_backend.Data
 
         public void ShowCards()
         {
+            Voting = false;
             foreach (var kv in Users)
             {
                 kv.Value.ShowCard();

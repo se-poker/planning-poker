@@ -21,6 +21,10 @@ export default defineComponent({
     connection.on("Game", (game) => {
       store.commit("setGame", game);
     });
+
+    // connection.on("OnVotedCard", (connectionId, card) => {
+    //   store.commit("setGame", game);
+    // });
   },
 });
 </script>

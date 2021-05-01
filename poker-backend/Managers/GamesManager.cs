@@ -35,6 +35,7 @@ namespace poker_backend.Managers
             {
                 Name = gamename
             };
+            game.Cards = new List<int>() {1, 2, 3, 5, 8, 13, 21, 34};
             Games.Add(gamename, game);
             return game;
         }

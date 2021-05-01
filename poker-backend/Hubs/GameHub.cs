@@ -29,7 +29,8 @@ namespace poker_backend.Hubs
             {
                 game.VoteCard(Connection, card);
 
-                await Clients.Group(game.Name).SendAsync("OnVotedCard", Connection);
+                await Clients.Group(game.Name).SendAsync("Game", game);
+                // await Clients.Group(game.Name).SendAsync("OnVotedCard", Connection, card);
             }
         }
 

@@ -1,7 +1,8 @@
 <template>
-  <div class="poker-card hidden" v-if="hidden"></div>
-  <div class="poker-card" v-if="!hidden">
-    {{ card && card.value }}
+  <div class="poker-card not-picked" v-if="card === null"></div>
+  <div class="poker-card hidden" v-if="card !== null && card.hidden"></div>
+  <div class="poker-card" v-if="card !== null && !card.hidden">
+    <p>{{ card && card.value }}</p>
   </div>
 </template>
 
@@ -14,31 +15,9 @@ export default defineComponent({
   props: {
     card: Card,
   },
-  computed: {
-    hidden() {
-      if (!this.card) {
-        return true;
-      }
-      return this.card && !this.card.hidden;
-    },
-  },
 });
 </script>
 
-<style lang="scss">
-.poker-card {
-  height: 100px;
-  width: 60px;
-  background-color: white;
-  color: dodgerblue;
-  border: 4px solid dodgerblue;
-  border-radius: 10px;
-  font-size: xx-large;
-  margin: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
-
-  &.hidden {
-    background-color: dodgerblue !important;
-  }
-}
+<style lang="scss" scoped>
+@import "src/assets/scss/poker-card";
 </style>

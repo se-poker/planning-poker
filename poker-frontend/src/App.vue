@@ -1,9 +1,6 @@
 <template>
   <Network />
-  <Header />
-  <div class="container mt-3">
-    <router-view />
-  </div>
+  <router-view />
 </template>
 
 <style lang="scss">
@@ -27,13 +24,26 @@
     }
   }
 }
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
 </style>
 <script lang="ts">
 import { defineComponent } from "vue";
-import Header from "@/components/Header.vue";
 import Network from "@/components/Network.vue";
 
 export default defineComponent({
-  components: { Network, Header },
+  components: { Network },
 });
 </script>

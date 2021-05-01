@@ -1,0 +1,25 @@
+button, a {
+  font-size: large;
+  background-color: dodgerblue;
+  border-radius: 10px;
+  border: 0px;
+  color: white;
+  padding: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: #ccc 0 2px 5px 1px;
+
+  &:hover{
+    box-shadow: #888 0 2px 5px 1px;
+  }
+  
+  &.outline {
+    color: dodgerblue;
+    border: 3px solid dodgerblue;
+    background-color: white;
+  }
+}
+
+p {
+  margin: 0 auto;
+}

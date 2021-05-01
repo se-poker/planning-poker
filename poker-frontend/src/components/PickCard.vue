@@ -1,7 +1,7 @@
 <template>
-  <button class="poker-card">
-    {{ card }}
-  </button>
+  <div class="poker-card clickable">
+    <p>{{ card }}</p>
+  </div>
 </template>
 
 <script>
@@ -15,16 +15,6 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss">
-.poker-card {
-  height: 100px;
-  width: 60px;
-  background-color: white;
-  color: dodgerblue;
-  border: 4px solid dodgerblue;
-  border-radius: 10px;
-  font-size: xx-large;
-  margin: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
-}
+<style lang="scss" scoped>
+@import "src/assets/scss/poker-card";
 </style>

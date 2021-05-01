@@ -8,7 +8,7 @@
 
         public void Show()
         {
-            Hidden = true;
+            Hidden = false;
         }
     }
 }

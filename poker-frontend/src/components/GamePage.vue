@@ -1,40 +1,34 @@
 <template>
-  <div>
-    <h1>Strona gry</h1>
-    <h2>{{ gamename }}</h2>
-  </div>
   <div class="game">
-    <div class="game-table">
-      <PickCard v-for="card in cards" :key="card" :user="card" :card="card" />
+    <div class="header">
+      <h1>Planning poker</h1>
+      <router-link class="link-to-home outline" to="/">Leave</router-link>
     </div>
-    <div class="user-list">
-      <User v-for="user in users" :key="user.connection" :user="user" />
+    <UsersCards class="game-table" />
+    <div class="game-stats">
+      <ControlPanel />
     </div>
-    <div class="game-stats">game-stats</div>
+    <CardPicker :cards="cards" class="pick-cards"></CardPicker>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, computed } from "vue";
 import { useStore } from "@/js/store";
-import PickCard from "@/components/PickCard.vue";
-import User from "@/components/User.vue";
+import CardPicker from "@/components/CardPicker.vue";
+import UsersCards from "@/components/UsersCards.vue";
+import ControlPanel from "@/components/ControlPanel.vue";
 
 export default defineComponent({
   name: "GamePage",
-  components: { PickCard, User },
-  data: () => {
-    return {
-      cards: [1, 2, 3, 5, 8, 13, 21, 34],
-    };
-  },
+  components: { ControlPanel, UsersCards, CardPicker },
   setup() {
     const store = useStore();
 
     return {
       // access a state in computed function
       gamename: computed(() => store.state.game && store.state.game.name),
-      users: computed(() => store.state.game && store.state.game.users),
+      cards: computed(() => store.state.game && store.state.game.cards),
     };
   },
 });
@@ -42,32 +36,36 @@ export default defineComponent({
 
 <style lang="scss">
 .game {
-  height: 900px;
-  width: 1650px;
+  height: 100%;
   display: grid;
-  grid-template-rows: [row1] 60% [row2] 40% [row2-end];
-  grid-template-columns: [col1] 60% [col2] 40% [col2-end];
+  grid-template-rows: [row1] 10% [row2] 60% [row3];
+  grid-template-columns: [col1] 70% [col2] 30% [col2-end];
+}
+
+.header {
+  grid-row: row1;
+  grid-column: col1/col2-end;
+  box-shadow: grey 0 2px 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .game-table {
-  border: 3px solid black;
-  background-color: darkgray;
-  grid-row: row1;
-  grid-column: col1;
-  align-content: center;
-}
-
-.game-stats {
-  border: 3px solid black;
-  background-color: red;
+  //background-color: darkgray;
   grid-row: row2;
   grid-column: col1;
 }
 
-.user-list {
-  border: 3px solid black;
-  background-color: yellow;
+.pick-cards {
+  grid-row: row3;
+  grid-column: col1;
+}
+
+.game-stats {
   grid-column: col2;
-  grid-row: row1/row2-end;
+  grid-row: row2/row3-end;
+  box-shadow: #ccc -2px 0 3px;
 }
 </style>
