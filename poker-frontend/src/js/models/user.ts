@@ -1,6 +1,6 @@
-import { Card } from "@/js/models/card";
+import Card from "@/js/models/card";
 
-export interface User {
+export default interface User {
   connection: string;
   name: string;
   card: Card | null;

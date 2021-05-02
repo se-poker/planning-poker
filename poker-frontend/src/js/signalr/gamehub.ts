@@ -20,7 +20,7 @@ connection.onclose(start);
 // Start the connection.
 start();
 
-export const joinGame = (gamename: string, username: string) => {
+export const joinGame = (gamename: string, username: string): void => {
   connection.send("JoinGame", gamename, username);
 };
 

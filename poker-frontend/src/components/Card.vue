@@ -8,7 +8,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import { Card } from "@/js/models/card";
+import Card from "@/js/models/card";
 
 export default defineComponent({
   name: "Card",
