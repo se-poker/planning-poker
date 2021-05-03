@@ -17,13 +17,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import Stats from "../js/models/stats";
+import { defineComponent, PropType } from "vue";
+import Stats from "@/js/models/stats";
 
 export default defineComponent({
   name: "Stats",
   props: {
-    stats: Stats,
+    stats: Object as PropType<Stats>,
   },
   setup(props) {
     console.log(props);

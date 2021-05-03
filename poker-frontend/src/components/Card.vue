@@ -15,13 +15,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 import Card from "@/js/models/card";
 
 export default defineComponent({
   name: "Card",
   props: {
-    card: Card,
+    card: Object as PropType<Card>,
   },
 });
 </script>
