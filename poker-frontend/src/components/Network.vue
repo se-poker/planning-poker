@@ -22,9 +22,14 @@ export default defineComponent({
       store.commit("setGame", game);
     });
 
-    // connection.on("OnVotedCard", (connectionId, card) => {
-    //   store.commit("setGame", game);
-    // });
+    connection.on("NewRound", (game) => {
+      store.commit("setGame", game);
+    });
+
+    connection.on("ShowCards", (game) => {
+      store.commit("setGame", game);
+      store.commit("setCard", null);
+    });
   },
 });
 </script>

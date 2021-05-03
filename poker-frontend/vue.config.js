@@ -1,5 +1,5 @@
 module.exports = {
-    devServer: {
-        host: 'poker-frontend.local'
-    }
-}
+  devServer: {
+    host: "poker-frontend.local",
+  },
+};

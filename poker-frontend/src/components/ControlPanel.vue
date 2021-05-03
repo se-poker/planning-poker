@@ -1,16 +1,24 @@
 <template>
   <div id="control-panel">
-    <button @click="showCards">Show cards</button>
-    <button @click="newRound">New round</button>
+    <button @click="showCards" :disabled="!voting">Show cards</button>
+    <button @click="newRound" :disabled="voting">New round</button>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 import connection from "@/js/signalr/gamehub";
+import { useStore } from "@/js/store";
 
 export default defineComponent({
   name: "ControlPanel",
+  setup() {
+    const store = useStore();
+
+    return {
+      voting: computed(() => store.state.game && store.state.game.voting),
+    };
+  },
   methods: {
     showCards: function () {
       connection.send("ShowCards");
@@ -25,5 +33,7 @@ export default defineComponent({
 <style scoped>
 #control-panel {
   padding: 20px;
+  display: flex;
+  justify-content: space-evenly;
 }
 </style>

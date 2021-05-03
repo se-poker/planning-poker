@@ -2,13 +2,20 @@
   <div class="game">
     <div class="header">
       <h1>Planning poker</h1>
-      <router-link class="link-to-home outline" to="/">Leave</router-link>
+      <div class="header-buttons">
+        <button>Invite people</button>
+        <router-link class="link-to-home outline" to="/">Leave</router-link>
+      </div>
     </div>
     <UsersCards class="game-table" />
-    <div class="game-stats">
+    <div class="right-panel">
+      <div>
+        <p>{{ status }}</p>
+      </div>
       <ControlPanel />
+      <GameStats />
     </div>
-    <CardPicker :cards="cards" class="pick-cards"></CardPicker>
+    <CardPicker class="pick-cards" />
   </div>
 </template>
 
@@ -18,17 +25,24 @@ import { useStore } from "@/js/store";
 import CardPicker from "@/components/CardPicker.vue";
 import UsersCards from "@/components/UsersCards.vue";
 import ControlPanel from "@/components/ControlPanel.vue";
+import GameStats from "@/components/GameStats.vue";
 
 export default defineComponent({
   name: "GamePage",
-  components: { ControlPanel, UsersCards, CardPicker },
+  components: { GameStats, ControlPanel, UsersCards, CardPicker },
   setup() {
     const store = useStore();
 
     return {
       // access a state in computed function
       gamename: computed(() => store.state.game && store.state.game.name),
-      cards: computed(() => store.state.game && store.state.game.cards),
+      status: computed(
+        () =>
+          "Game status: " +
+          (store.state.game && store.state.game.voting
+            ? "Voting"
+            : "Wait for new round")
+      ),
     };
   },
 });
@@ -50,6 +64,11 @@ export default defineComponent({
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  z-index: 10;
+}
+
+.header-buttons * {
+  margin-left: 10px;
 }
 
 .game-table {
@@ -63,9 +82,10 @@ export default defineComponent({
   grid-column: col1;
 }
 
-.game-stats {
+.right-panel {
   grid-column: col2;
   grid-row: row2/row3-end;
+  padding: 20px;
   box-shadow: #ccc -2px 0 3px;
 }
 </style>

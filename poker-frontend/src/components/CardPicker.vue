@@ -1,12 +1,13 @@
 <template>
   <div>
-    <p>Choose cards</p>
+    <p v-if="voting">Choose your card</p>
+    <p v-if="!voting">Wait for new round</p>
     <div class="picker">
       <PickCard
         v-for="card in cards"
         :key="card"
-        :user="card"
-        :card="card"
+        :value="card"
+        :voting="voting"
         :class="{ selected: selected == card }"
         @click="setCard(card)"
       />
@@ -23,18 +24,19 @@ import connection from "@/js/signalr/gamehub";
 export default defineComponent({
   name: "CardPicker",
   components: { PickCard },
-  props: {
-    cards: [],
-  },
   setup() {
     const store = useStore();
     return {
       setCard: (card: number | null) => {
-        store.commit("setCard", card);
-        connection.send("VoteCard", card);
+        if (store.state.game && store.state.game.voting) {
+          store.commit("setCard", card);
+          connection.send("VoteCard", card);
+        }
       },
+
       selected: computed(() => store.state.card),
-      users: computed(() => store.state.game && store.state.game.users),
+      voting: computed(() => store.state.game && store.state.game.voting),
+      cards: store.state.game && store.state.game.cards,
     };
   },
 });

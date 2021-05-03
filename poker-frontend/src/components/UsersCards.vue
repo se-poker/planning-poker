@@ -8,10 +8,10 @@
 </template>
 
 <script lang="ts">
+import { computed, defineComponent } from "vue";
 import { useStore } from "@/js/store";
-import { computed } from "vue";
-import { defineComponent } from "vue";
 import User from "@/components/User.vue";
+import UserModel from "@/js/models/user";
 
 export default defineComponent({
   name: "UsersCards",
@@ -20,7 +20,9 @@ export default defineComponent({
     const store = useStore();
 
     return {
-      users: computed(() => store.state.game && store.state.game.users),
+      users: computed(
+        (): UserModel[] | null => store.state.game && store.state.game.users
+      ),
     };
   },
 });

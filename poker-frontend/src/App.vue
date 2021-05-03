@@ -4,6 +4,8 @@
 </template>
 
 <style lang="scss">
+@import "assets/scss/colors";
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -23,20 +25,6 @@
       color: #42b983;
     }
   }
-}
-
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-html,
-body,
-#app {
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
 }
 </style>
 <script lang="ts">

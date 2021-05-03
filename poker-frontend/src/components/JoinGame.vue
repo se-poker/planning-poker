@@ -1,6 +1,6 @@
 <template>
-  <div class="create-game">
-    <h1>Configure your table</h1>
+  <div class="user-prompt">
+    <h1>Join game</h1>
 
     <label>
       User name
@@ -10,13 +10,7 @@
       Game name
       <input v-model="gamename" />
     </label>
-    <label>
-      Cards set
-      <select>
-        <option>Fibbonaci</option>
-      </select>
-    </label>
-    <button @click="join">Create game</button>
+    <button @click="join">Join game</button>
   </div>
 </template>
 
@@ -25,7 +19,7 @@ import { defineComponent } from "vue";
 import { joinGame } from "@/js/signalr/gamehub";
 
 export default defineComponent({
-  name: "CreateGame",
+  name: "JoinGame",
   data: () => {
     return {
       username: "",
@@ -41,13 +35,13 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.create-game {
+.user-prompt {
   background-color: white;
   border-radius: 15px;
   padding: 25px 50px;
   box-shadow: 0 2px 4px 2px #ccc;
   width: 450px;
-  height: 350px;
+  height: 300px;
   flex-direction: column;
   display: flex;
   align-items: flex-end;

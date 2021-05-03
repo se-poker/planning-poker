@@ -41,7 +41,7 @@ namespace poker_backend.Hubs
             {
                 game.ShowCards();
 
-                await Clients.Group(game.Name).SendAsync("Game", game);
+                await Clients.Group(game.Name).SendAsync("ShowCards", game);
             }
         }
 
@@ -52,7 +52,7 @@ namespace poker_backend.Hubs
             {
                 game.ClearVotes();
 
-                await Clients.Group(game.Name).SendAsync("Game", game);
+                await Clients.Group(game.Name).SendAsync("NewRound", game);
             }
         }
 

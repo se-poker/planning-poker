@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace poker_backend.Data
 {
@@ -12,6 +13,8 @@ namespace poker_backend.Data
         public bool Voting { get; set; }
 
         public Dictionary<string, User> Users { get; } = new();
+
+        public List<GameStats> Stats { get; } = new();
 
         public void ClearVotes()
         {
@@ -56,6 +59,21 @@ namespace poker_backend.Data
             {
                 kv.Value.ShowCard();
             }
+
+            Stats.Add(CalculateStats());
+        }
+
+        private GameStats CalculateStats()
+        {
+            var usersWhoVoted = Users.Where(u => u.Value.Card != null).Select(u => u.Value).ToList();
+
+            return new GameStats
+            {
+                Round = Stats.LastOrDefault()?.Round+1 ?? 1,
+                Votes = usersWhoVoted.Count,
+                AverageVote = Math.Round(usersWhoVoted.Average(u => u.Card!.Value),1),
+                Time = DateTime.Now.ToString("t")
+            };
         }
     }
 }
