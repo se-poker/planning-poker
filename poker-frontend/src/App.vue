@@ -1,11 +1,11 @@
 <template>
-  <Header />
-  <div class="container mt-3">
-    <router-view />
-  </div>
+  <Network />
+  <router-view />
 </template>
 
 <style lang="scss">
+@import "assets/scss/colors";
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -27,9 +27,11 @@
   }
 }
 </style>
-<script>
-import Header from "@/components/Header";
-export default {
-  components: { Header },
-};
+<script lang="ts">
+import { defineComponent } from "vue";
+import Network from "@/components/Network.vue";
+
+export default defineComponent({
+  components: { Network },
+});
 </script>
