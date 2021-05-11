@@ -41,7 +41,7 @@ namespace poker_backend
             if (env.IsProduction())
             {
                 app.UseCors(builder => builder
-                    .WithOrigins("https://planning-poker-se.netlify.app/")
+                    .WithOrigins("https://planning-poker-se.netlify.app")
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());
