@@ -1,7 +1,8 @@
 import * as signalR from "@microsoft/signalr";
 
+const url = process.env.VUE_APP_URL ? process.env.VUE_APP_URL : "";
 const connection = new signalR.HubConnectionBuilder()
-  .withUrl("http://poker-backend.local:5000/game")
+  .withUrl(url)
   .configureLogging(signalR.LogLevel.Information)
   .build();
 

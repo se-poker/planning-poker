@@ -30,13 +30,23 @@ namespace poker_backend
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                app.UseCors(builder => builder
+                    .WithOrigins("http://poker-frontend.local:8080")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
             }
 
-            app.UseCors(builder => builder
-                .WithOrigins("http://poker-frontend.local:8080")
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .AllowCredentials());
+            if (env.IsProduction())
+            {
+                app.UseCors(builder => builder
+                    .WithOrigins("https://planning-poker-se.netlify.app/")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            }
+            
 
             app.UseRouting();
 
@@ -59,6 +69,7 @@ namespace poker_backend
             options.AllowedOrigins.Add("http://poker-backend.local:5000");
             options.AllowedOrigins.Add("https://poker-backend.local:5001");
             options.AllowedOrigins.Add("http://poker-frontend.local:8080");
+            options.AllowedOrigins.Add("https://planning-poker-se.netlify.app");
             return options;
         }
     }
