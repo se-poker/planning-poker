@@ -18,7 +18,7 @@
           <option>Fibbonaci</option>
         </select>
       </label>
-      <button @click="join">Create game</button>
+      <button :disabled="!username || !gamename" @click="join">Create game</button>
     </div>
   </div>
 </template>

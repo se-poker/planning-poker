@@ -11,7 +11,7 @@
         <input v-model="gamename" />
       </label>
     </div>
-    <button id="btnJoinGame" @click="join">Join game</button>
+    <button :disabled="!username || !gamename" id="btnJoinGame" @click="join">Join game</button>
   </div>
 </template>
 
