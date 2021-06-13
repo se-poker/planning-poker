@@ -1,5 +1,5 @@
 <template>
-  <h1>Strona główna</h1>
+  <h1>Online Planning Poker</h1>
   <div class="container">
     <div class="row">
       <JoinGame />
