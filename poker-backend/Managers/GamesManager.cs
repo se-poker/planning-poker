@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using poker_backend.Data;
+using poker_backend.Database;
 
 namespace poker_backend.Managers
 {
@@ -68,6 +69,9 @@ namespace poker_backend.Managers
             if (!game.IsUserAlreadyInGame(connection))
             {
                 game.JoinUser(connection, username, isHost);
+
+                var database = new Db();
+                database.SaveToDatabase(username, gamename);
             }
 
             return game;
