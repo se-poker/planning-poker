@@ -29,25 +29,39 @@ namespace poker_backend.Managers
             return null;
         }
 
-        public Game CreateGame(string gamename)
+        public Game CreateGame(string gamename, CardsTypes gameType)
         {
             var game = new Game
             {
                 Name = gamename
             };
-            game.Cards = new List<int>() {1, 2, 3, 5, 8, 13, 21, 34};
+            switch (gameType)
+            {
+                case CardsTypes.FIBBONACI:
+                    game.Cards = new List<int>() { 1, 2, 3, 5, 8, 13, 21, 34 };
+                    break;
+                case CardsTypes.POWER_OF_TWO:
+                    game.Cards = new List<int>() { 1, 2, 4, 8, 16, 32, 64, 128 };
+                    break;
+                case CardsTypes.POWER_OF_THREE:
+                    game.Cards = new List<int>() { 1, 3, 9, 27, 81, 243, 729, 2187};
+                    break;
+                default:
+                    throw new Exception("INVALID CARD TYPE");
+            }
             Games.Add(gamename, game);
             return game;
         }
 
-        public Game JoinGame(string connection, string gamename, string username)
+        public Game JoinGame(string connection, string gamename, string username, CardsTypes gameType)
         {
             ConnectionsGames[connection] = gamename;
             var game = GetGame(gamename);
             var isHost = false;
-            if (game == null)
+
+            if (game == null && gameType != CardsTypes.NO)
             {
-                game = CreateGame(gamename);
+                game = CreateGame(gamename, gameType);
                 isHost = true;
             }
 

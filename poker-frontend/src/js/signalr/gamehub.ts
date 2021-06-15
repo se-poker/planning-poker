@@ -21,8 +21,12 @@ connection.onclose(start);
 // Start the connection.
 start();
 
-export const joinGame = (gamename: string, username: string): void => {
-  connection.send("JoinGame", gamename, username);
+export const joinGame = (
+  gamename: string,
+  username: string,
+  gametype: number
+): void => {
+  connection.send("JoinGame", gamename, username, gametype.toString());
 };
 
 export default connection;

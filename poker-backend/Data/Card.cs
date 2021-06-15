@@ -11,4 +11,13 @@
             Hidden = false;
         }
     }
+
+
+    public enum CardsTypes
+    {
+        NO=0,
+        FIBBONACI = 1,
+        POWER_OF_TWO = 2,
+        POWER_OF_THREE
+    }
 }

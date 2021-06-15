@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SignalR;
+using poker_backend.Data;
 using poker_backend.Managers;
 
 namespace poker_backend.Hubs
@@ -12,9 +13,9 @@ namespace poker_backend.Hubs
 
         private string Connection => Context.ConnectionId;
 
-        public async Task JoinGame(string gamename, string username)
+        public async Task JoinGame(string gamename, string username, string gametype)
         {
-            var game = GamesManager.JoinGame(Connection, gamename, username);
+            var game = GamesManager.JoinGame(Connection, gamename, username, (CardsTypes)Enum.Parse(typeof(CardsTypes), gametype));
 
             await Groups.AddToGroupAsync(Connection, gamename);
 

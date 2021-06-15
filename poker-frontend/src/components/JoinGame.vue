@@ -16,8 +16,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import { joinGame } from "@/js/signalr/gamehub";
+import {defineComponent} from "vue";
+import {joinGame} from "@/js/signalr/gamehub";
 
 export default defineComponent({
   name: "JoinGame",
@@ -29,7 +29,7 @@ export default defineComponent({
   },
   methods: {
     join: function () {
-      joinGame(this.gamename, this.username);
+      joinGame(this.gamename, this.username, 0);
     },
   },
 });
