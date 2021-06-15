@@ -11,13 +11,15 @@
         <input v-model="gamename" />
       </label>
     </div>
-    <button :disabled="!username || !gamename" id="btnJoinGame" @click="join">Join game</button>
+    <button :disabled="!username || !gamename" id="btnJoinGame" @click="join">
+      Join game
+    </button>
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
-import {joinGame} from "@/js/signalr/gamehub";
+import { defineComponent } from "vue";
+import { joinGame } from "@/js/signalr/gamehub";
 
 export default defineComponent({
   name: "JoinGame",

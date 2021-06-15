@@ -20,7 +20,9 @@
           <option value="3">Power of 3</option>
         </select>
       </label>
-      <button :disabled="!username || !gamename" @click="join">Create game</button>
+      <button :disabled="!username || !gamename" @click="join">
+        Create game
+      </button>
     </div>
   </div>
 </template>
@@ -92,7 +94,7 @@ export default defineComponent({
     align-items: center;
 
     label {
-      margin-right: 15px;
+      margin-right: 10px;
     }
   }
 }
