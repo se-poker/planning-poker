@@ -32,7 +32,7 @@ export default defineComponent({
 .flip-card {
   background-color: transparent;
   height: 100px;
-  width: 60px;
+  width: 65px;
   margin: 10px;
 
   &.not-picked {
@@ -65,7 +65,7 @@ export default defineComponent({
   color: $themeColor;
   border: 4px solid $themeColor;
   border-radius: 10px;
-  font-size: xx-large;
+  font-size: x-large;
   font-weight: bold;
   box-shadow: 0 2px 4px #ccc;
   display: flex;

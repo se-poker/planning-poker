@@ -14,8 +14,10 @@
     <div class="bottomRow">
       <label>
         Cards set
-        <select>
-          <option>Fibbonaci</option>
+        <select v-model="gametype">
+          <option value="1">Fibbonaci</option>
+          <option value="2">Power of 2</option>
+          <option value="3">Power of 3</option>
         </select>
       </label>
       <button :disabled="!username || !gamename" @click="join">Create game</button>
@@ -33,11 +35,12 @@ export default defineComponent({
     return {
       username: "",
       gamename: "",
+      gametype: 1,
     };
   },
   methods: {
     join: function () {
-      joinGame(this.gamename, this.username);
+      joinGame(this.gamename, this.username, this.gametype);
     },
   },
 });
